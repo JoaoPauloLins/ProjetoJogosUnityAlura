@@ -2,34 +2,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
 {
+    [SerializeField] private LayerMask MascaraChao;
+    [SerializeField] private GameObject TextoGameOver;
+    [SerializeField] private AudioClip SomDeDano;
+    [SerializeField] private UnityEvent AoMorrer;
+    [SerializeField] private AoMudarVida AoMudarVida;
 
     private Vector3 direcao;
-    public LayerMask MascaraChao;
-    public GameObject TextoGameOver;
-    public ControlaInterface scriptControlaInterface;
-    public AudioClip SomDeDano;
     private MovimentoJogador meuMovimentoJogador;
     private AnimacaoPersonagem animacaoJogador;
-    public Status statusJogador;
+    private Status statusJogador;
 
     private void Start()
     {
         meuMovimentoJogador = GetComponent<MovimentoJogador>();
         animacaoJogador = GetComponent<AnimacaoPersonagem>();
         statusJogador = GetComponent<Status>();
+
+        AoMudarVida.Invoke(statusJogador.Vida);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
         animacaoJogador.Movimentar(this.meuMovimentoJogador.Direcao.magnitude);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         meuMovimentoJogador.Movimentar(statusJogador.Velocidade);
 
@@ -39,7 +41,7 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
     public void TomarDano (int dano)
     {
         statusJogador.Vida -= dano;
-        scriptControlaInterface.AtualizarSliderVidaJogador();
+        AoMudarVida.Invoke(statusJogador.Vida);
         ControlaAudio.instancia.PlayOneShot(SomDeDano);
         if(statusJogador.Vida <= 0)
         {
@@ -49,7 +51,7 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
 
     public void Morrer ()
     {
-        scriptControlaInterface.GameOver();
+        AoMorrer.Invoke();
     }
 
     public void CurarVida (int quantidadeDeCura)
@@ -59,6 +61,9 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
         {
             statusJogador.Vida = statusJogador.VidaInicial;
         }
-        scriptControlaInterface.AtualizarSliderVidaJogador();
+        AoMudarVida.Invoke(statusJogador.Vida);
     }
 }
+
+[Serializable]
+public class AoMudarVida : UnityEvent<int> { }

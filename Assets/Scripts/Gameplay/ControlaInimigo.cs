@@ -4,37 +4,36 @@ using UnityEngine;
 
 public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
 {
+    [SerializeField] private AudioClip SomDeMorte;
+    [SerializeField] private GameObject KitMedicoPrefab;
+    [SerializeField] private GameObject ParticulaSangueZumbi;
+    [SerializeField] private float tempoEntrePosicoesAleatorias = 4;
+    [SerializeField] private float porcentagemGerarKitMedico = 0.1f;
 
-    public GameObject Jogador;
+    private GameObject Jogador;
     private MovimentoPersonagem movimentaInimigo;
     private AnimacaoPersonagem animacaoInimigo;
     private Status statusInimigo;
-    public AudioClip SomDeMorte;
     private Vector3 posicaoAleatoria;
     private Vector3 direcao;
     private float contadorVagar;
-    private float tempoEntrePosicoesAleatorias = 4;
-    private float porcentagemGerarKitMedico = 0.1f;
-    public GameObject KitMedicoPrefab;
     private ControlaInterface scriptControlaInterface;
-    [HideInInspector]
-    public GeradorZumbis meuGerador;
-    public GameObject ParticulaSangueZumbi;
-
     private IReservaDeObjetos reserva;
-  
+
+    [HideInInspector] public GeradorZumbis meuGerador;
 
     public void SetReserva(IReservaDeObjetos reserva)
     {
         this.reserva = reserva;
     }
+
     private void Awake()
     {
         animacaoInimigo = GetComponent<AnimacaoPersonagem>();
         movimentaInimigo = GetComponent<MovimentoPersonagem>();
     }
 
-    void Start () {
+    private void Start () {
         Jogador = GameObject.FindWithTag("Jogador");
         
         AleatorizarZumbi();
@@ -42,7 +41,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         scriptControlaInterface = GameObject.FindObjectOfType(typeof(ControlaInterface)) as ControlaInterface;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
 
@@ -69,7 +68,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         }
     }
 
-    void Vagar ()
+    private void Vagar ()
     {
         contadorVagar -= Time.deltaTime;
         if(contadorVagar <= 0)
@@ -87,7 +86,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         }           
     }
 
-    Vector3 AleatorizarPosicao ()
+    private Vector3 AleatorizarPosicao ()
     {
         Vector3 posicao = Random.insideUnitSphere * 10;
         posicao += transform.position;
@@ -96,13 +95,13 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         return posicao;
     }
 
-    void AtacaJogador ()
+    private void AtacaJogador ()
     {
         int dano = Random.Range(20, 30);
         Jogador.GetComponent<ControlaJogador>().TomarDano(dano);
     }
 
-    void AleatorizarZumbi ()
+    private void AleatorizarZumbi ()
     {
         int geraTipoZumbi = Random.Range(1, transform.childCount);
         transform.GetChild(geraTipoZumbi).gameObject.SetActive(true);
@@ -139,7 +138,8 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
        
         this.reserva.DevolverObjeto(this.gameObject);
     }
-    void VerificarGeracaoKitMedico(float porcentagemGeracao)
+
+    private void VerificarGeracaoKitMedico(float porcentagemGeracao)
     {
         if (Random.value <= porcentagemGeracao)
         {

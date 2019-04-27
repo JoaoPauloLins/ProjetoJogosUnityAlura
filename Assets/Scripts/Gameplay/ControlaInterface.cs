@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ControlaInterface : MonoBehaviour{
-
-    private ControlaJogador scriptControlaJogador;
+public class ControlaInterface : MonoBehaviour
+{
     public Slider SliderVidaJogador;
     public GameObject PainelDeGameOver;
     public Text TextoTempoDeSobrevivencia;
@@ -16,20 +15,15 @@ public class ControlaInterface : MonoBehaviour{
     public Text TextoQuantidadeDeZumbisMortos;
     public Text TextoChefeAparece;
 
-	// Use this for initialization
-	void Start () {
-        scriptControlaJogador = GameObject.FindWithTag("Jogador")
-                                .GetComponent<ControlaJogador>();
-
-        SliderVidaJogador.maxValue = scriptControlaJogador.statusJogador.Vida;
-        AtualizarSliderVidaJogador();
+	private void Start ()
+    {
         Time.timeScale = 1;
         tempoPontuacaoSalvo = PlayerPrefs.GetFloat("PontuacaoMaxima");
     }
 
-    public void AtualizarSliderVidaJogador ()
+    public void AtualizarSliderVidaJogador (int vida)
     {
-        SliderVidaJogador.value = scriptControlaJogador.statusJogador.Vida;
+        SliderVidaJogador.value = vida;
     }
 
     public void AtualizarQuantidadeDeZumbisMortos ()
