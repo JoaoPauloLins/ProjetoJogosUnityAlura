@@ -6,16 +6,19 @@ using UnityEngine.UI;
 
 public class ControlaChefe : MonoBehaviour, IMatavel, IReservavel
 {
+    [SerializeField] private CaixaDeSom AudioMorte;
+    [SerializeField] private CaixaDeSom AudioAtaque;
+    [SerializeField] private GameObject KitMedicoPrefab;
+    [SerializeField] private Slider sliderVidaChefe;
+    [SerializeField] private Image ImagelSlider;
+    [SerializeField] private Color CorDaVidaMaxima, CorDaVidaMinima;
+    [SerializeField] private GameObject ParticulaSangueZumbi;
+
     private Transform jogador;
     private NavMeshAgent agente;
     private Status statusChefe;
     private AnimacaoPersonagem animacaoChefe;
     private MovimentoPersonagem movimentoChefe;
-    public GameObject KitMedicoPrefab;
-    public Slider sliderVidaChefe;
-    public Image ImagelSlider;
-    public Color CorDaVidaMaxima, CorDaVidaMinima;
-    public GameObject ParticulaSangueZumbi;
     private IReservaDeObjetos reserva;
 
     private void Awake()
@@ -62,6 +65,7 @@ public class ControlaChefe : MonoBehaviour, IMatavel, IReservavel
 
     void AtacaJogador ()
     {
+        AudioAtaque.Tocar();
         int dano = Random.Range(30, 40);
         jogador.GetComponent<ControlaJogador>().TomarDano(dano);
     }
@@ -86,6 +90,7 @@ public class ControlaChefe : MonoBehaviour, IMatavel, IReservavel
         animacaoChefe.Morrer();
         movimentoChefe.Morrer();
         this.enabled = false;
+        AudioMorte.Tocar();
         agente.enabled = false;
         Instantiate(KitMedicoPrefab, transform.position, Quaternion.identity);
         Invoke("VoltarParaReserva", 2);

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ControlaArma : MonoBehaviour
 {
-
-    public ReservaExtensivel reservaDeBalas;
-    public GameObject CanoDaArma;
-    public AudioClip SomDoTiro;
+    [SerializeField] private CaixaDeSom caixaDeSom;
+    [SerializeField] private GameObject CanoDaArma;
+    [SerializeField] private ReservaExtensivel reservaDeBalas;
 
     private void Update()
     {
@@ -17,7 +16,7 @@ public class ControlaArma : MonoBehaviour
             if(toque.phase == TouchPhase.Began)
             {
                 this.Atirar();
-                ControlaAudio.instancia.PlayOneShot(SomDoTiro);
+                caixaDeSom.Tocar();
             }
         }
       

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
 {
-    [SerializeField] private AudioClip SomDeMorte;
+    [SerializeField] private CaixaDeSom AudioMorte;
+    [SerializeField] private CaixaDeSom AudioAtaque;
     [SerializeField] private GameObject KitMedicoPrefab;
     [SerializeField] private GameObject ParticulaSangueZumbi;
     [SerializeField] private float tempoEntrePosicoesAleatorias = 4;
@@ -97,6 +98,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
 
     private void AtacaJogador ()
     {
+        AudioAtaque.Tocar();
         int dano = Random.Range(20, 30);
         Jogador.GetComponent<ControlaJogador>().TomarDano(dano);
     }
@@ -127,7 +129,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         animacaoInimigo.Morrer();
         movimentaInimigo.Morrer();
         this.enabled = false;
-        ControlaAudio.instancia.PlayOneShot(SomDeMorte);
+        AudioMorte.Tocar();
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
         scriptControlaInterface.AtualizarQuantidadeDeZumbisMortos();
         

@@ -5,11 +5,11 @@ using UnityEngine;
 public class MovimentoJogador : MovimentoPersonagem
 {
     [SerializeField]
-    private CaixaDeSom audio;
+    private CaixaDeSom caixaDeSom;
 
     public void AudioPasso()
     {
-        audio.Tocar();
+        caixaDeSom.Tocar();
     }
 
     public void RotacaoJogador()
