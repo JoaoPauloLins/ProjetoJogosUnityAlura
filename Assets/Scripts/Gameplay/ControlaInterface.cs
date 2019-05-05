@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class ControlaInterface : MonoBehaviour
 {
     public Slider SliderVidaJogador;
-    public GameObject PainelDeGameOver;
-    public Text TextoTempoDeSobrevivencia;
-    public Text TextoPontuacaoMaxima;
+    //public GameObject PainelDeGameOver;
+    //public Text TextoTempoDeSobrevivencia;
+    //public Text TextoPontuacaoMaxima;
     private float tempoPontuacaoSalvo;
     private int quantidadeDeZumbisMortos;
     public Text TextoQuantidadeDeZumbisMortos;
@@ -32,41 +32,41 @@ public class ControlaInterface : MonoBehaviour
         TextoQuantidadeDeZumbisMortos.text = string.Format("x {0}", quantidadeDeZumbisMortos);
     }
 
-    public void GameOver ()
-    {
-        PainelDeGameOver.SetActive(true);
-        Time.timeScale = 0;
+    //public void GameOver ()
+    //{
+    //    PainelDeGameOver.SetActive(true);
+    //    Time.timeScale = 0;
 
-        int minutos = (int)(Time.timeSinceLevelLoad / 60);
-        int segundos = (int)(Time.timeSinceLevelLoad % 60);
-        TextoTempoDeSobrevivencia.text = 
-            "Você sobreviveu por " + minutos + "min e " + segundos + "s";
+    //    int minutos = (int)(Time.timeSinceLevelLoad / 60);
+    //    int segundos = (int)(Time.timeSinceLevelLoad % 60);
+    //    TextoTempoDeSobrevivencia.text = 
+    //        "Você sobreviveu por " + minutos + "min e " + segundos + "s";
 
-        AjustarPontuacaoMaxima(minutos, segundos);
-    }
+    //    AjustarPontuacaoMaxima(minutos, segundos);
+    //}
 
-    void AjustarPontuacaoMaxima (int min, int seg)
-    {
-        if(Time.timeSinceLevelLoad > tempoPontuacaoSalvo)
-        {
-            tempoPontuacaoSalvo = Time.timeSinceLevelLoad;
-            TextoPontuacaoMaxima.text = 
-                string.Format("Seu melhor tempo é {0}min e {1}s", min, seg);
-            PlayerPrefs.SetFloat("PontuacaoMaxima", tempoPontuacaoSalvo);
-        }
-        if(TextoPontuacaoMaxima.text == "")
-        {
-            min = (int)tempoPontuacaoSalvo / 60;
-            seg = (int)tempoPontuacaoSalvo % 60;
-            TextoPontuacaoMaxima.text =
-                string.Format("Seu melhor tempo é {0}min e {1}s", min, seg);
-        }
-    }
+    //void AjustarPontuacaoMaxima (int min, int seg)
+    //{
+    //    if(Time.timeSinceLevelLoad > tempoPontuacaoSalvo)
+    //    {
+    //        tempoPontuacaoSalvo = Time.timeSinceLevelLoad;
+    //        TextoPontuacaoMaxima.text = 
+    //            string.Format("Seu melhor tempo é {0}min e {1}s", min, seg);
+    //        PlayerPrefs.SetFloat("PontuacaoMaxima", tempoPontuacaoSalvo);
+    //    }
+    //    if(TextoPontuacaoMaxima.text == "")
+    //    {
+    //        min = (int)tempoPontuacaoSalvo / 60;
+    //        seg = (int)tempoPontuacaoSalvo % 60;
+    //        TextoPontuacaoMaxima.text =
+    //            string.Format("Seu melhor tempo é {0}min e {1}s", min, seg);
+    //    }
+    //}
 
-    public void Reiniciar ()
-    {
-        SceneManager.LoadScene("game");
-    }
+    //public void Reiniciar ()
+    //{
+    //    SceneManager.LoadScene("game");
+    //}
 
     public void AparecerTextoChefeCriado ()
     {

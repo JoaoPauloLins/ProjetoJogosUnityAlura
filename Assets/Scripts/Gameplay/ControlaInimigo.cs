@@ -19,6 +19,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
     private Vector3 direcao;
     private float contadorVagar;
     private ControlaInterface scriptControlaInterface;
+    private Pontuacao pontuacao;
     private IReservaDeObjetos reserva;
 
     [HideInInspector] public GeradorZumbis meuGerador;
@@ -39,7 +40,8 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         
         AleatorizarZumbi();
         statusInimigo = GetComponent<Status>();
-        scriptControlaInterface = GameObject.FindObjectOfType(typeof(ControlaInterface)) as ControlaInterface;
+        scriptControlaInterface = FindObjectOfType<ControlaInterface>();
+        pontuacao = FindObjectOfType<Pontuacao>();
     }
 
     private void FixedUpdate()
@@ -132,7 +134,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         AudioMorte.Tocar();
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
         scriptControlaInterface.AtualizarQuantidadeDeZumbisMortos();
-        
+        pontuacao.AtualizarPontos();
     }
 
     private void VoltarParaReserva()
