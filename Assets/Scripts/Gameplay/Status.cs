@@ -1,15 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Status : MonoBehaviour
+[CreateAssetMenu(fileName = "ObjectStatus", menuName = "Status", order = 1)]
+public class Status : ScriptableObject
 {
+    [NonSerialized] public int Vida;
+
     public int VidaInicial = 100;
-    [HideInInspector]
-    public int Vida;
     public float Velocidade = 5;
 
-    void Awake ()
+    public void Reiniciar()
     {
         Vida = VidaInicial;
     }

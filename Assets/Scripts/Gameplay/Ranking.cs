@@ -16,7 +16,6 @@ public class Ranking : MonoBehaviour
     private void Awake()
     {
         caminhoArquivo = Path.Combine(Application.persistentDataPath, NOME_DO_ARQUIVO);
-        Debug.Log(caminhoArquivo);
         if (File.Exists(caminhoArquivo))
         {
             string textoJson = File.ReadAllText(caminhoArquivo);

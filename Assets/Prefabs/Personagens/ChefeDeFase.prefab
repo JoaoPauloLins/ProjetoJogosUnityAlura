@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 54163392757231022}
   - component: {fileID: 114899746834038156}
   - component: {fileID: 114346233917828092}
-  - component: {fileID: 114907622645617620}
   - component: {fileID: 195570941801710910}
   m_Layer: 9
   m_Name: ChefeDeFase
@@ -129,6 +128,7 @@ MonoBehaviour:
   CorDaVidaMinima: {r: 1, g: 0.328, b: 0.322, a: 1}
   ParticulaSangueZumbi: {fileID: 1713889116999138, guid: 0bd0cf4e7bc90db4cb1f45c4a9b7e07a,
     type: 3}
+  statusChefe: {fileID: 11400000, guid: e4ee2f3fedb7f354084db2302fedfcc4, type: 2}
 --- !u!54 &54163392757231022
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -169,21 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7a60e8bdd64334e862a18a5f4510eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114907622645617620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063500868937916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26899c8c198bfcd46a8357330ef1e3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VidaInicial: 10
-  Vida: 0
-  Velocidade: 4
 --- !u!195 &195570941801710910
 NavMeshAgent:
   m_ObjectHideFlags: 0

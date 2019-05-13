@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,19 +10,30 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
     [SerializeField] private LayerMask MascaraChao;
     [SerializeField] private GameObject TextoGameOver;
     [SerializeField] private AudioClip SomDeDano;
+    [SerializeField] private Status statusJogador;
     [SerializeField] private UnityEvent AoMorrer;
     [SerializeField] private AoMudarVida AoMudarVida;
 
     private Vector3 direcao;
     private MovimentoJogador meuMovimentoJogador;
     private AnimacaoPersonagem animacaoJogador;
-    private Status statusJogador;
+    private Pontuacao pontuacao;
+    private string caminhoArquivo;
 
-    private void Start()
+    private void Awake()
     {
         meuMovimentoJogador = GetComponent<MovimentoJogador>();
         animacaoJogador = GetComponent<AnimacaoPersonagem>();
-        statusJogador = GetComponent<Status>();
+    }
+
+    private void Start()
+    {
+        pontuacao = FindObjectOfType<Pontuacao>();
+
+        if(statusJogador.Vida == 0)
+        {
+            statusJogador.Reiniciar();
+        }
 
         AoMudarVida.Invoke(statusJogador.Vida);
     }
@@ -51,6 +63,8 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
 
     public void Morrer ()
     {
+        statusJogador.Reiniciar();
+        pontuacao.AtualizarTempoSobrevivencia();
         AoMorrer.Invoke();
     }
 

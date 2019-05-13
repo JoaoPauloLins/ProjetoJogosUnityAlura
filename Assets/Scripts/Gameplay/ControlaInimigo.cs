@@ -8,19 +8,21 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
     [SerializeField] private CaixaDeSom AudioAtaque;
     [SerializeField] private GameObject KitMedicoPrefab;
     [SerializeField] private GameObject ParticulaSangueZumbi;
+    [SerializeField] private Status statusInimigo;
     [SerializeField] private float tempoEntrePosicoesAleatorias = 4;
     [SerializeField] private float porcentagemGerarKitMedico = 0.1f;
 
     private GameObject Jogador;
     private MovimentoPersonagem movimentaInimigo;
     private AnimacaoPersonagem animacaoInimigo;
-    private Status statusInimigo;
+    
     private Vector3 posicaoAleatoria;
     private Vector3 direcao;
-    private float contadorVagar;
     private ControlaInterface scriptControlaInterface;
     private Pontuacao pontuacao;
     private IReservaDeObjetos reserva;
+    private float contadorVagar;
+    private int vidaAtual; 
 
     [HideInInspector] public GeradorZumbis meuGerador;
 
@@ -39,9 +41,9 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
         Jogador = GameObject.FindWithTag("Jogador");
         
         AleatorizarZumbi();
-        statusInimigo = GetComponent<Status>();
         scriptControlaInterface = FindObjectOfType<ControlaInterface>();
         pontuacao = FindObjectOfType<Pontuacao>();
+        vidaAtual = statusInimigo.VidaInicial;
     }
 
     private void FixedUpdate()
@@ -113,8 +115,8 @@ public class ControlaInimigo : MonoBehaviour, IMatavel, IReservavel
 
     public void TomarDano(int dano)
     {
-        statusInimigo.Vida -= dano;
-        if(statusInimigo.Vida <= 0)
+        vidaAtual -= dano;
+        if(vidaAtual <= 0)
         {
             Morrer();
         }

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ControlaCamera : MonoBehaviour {
 
-    public GameObject Jogador;
+    private GameObject Jogador;
     private Vector3 distCompensar;
 
-	// Use this for initialization
-	void Start () {
+	private void Start () {
+        Jogador = GameObject.FindGameObjectWithTag("Jogador");
+
         distCompensar = transform.position - Jogador.transform.position;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	private void Update () {
         transform.position = Jogador.transform.position + distCompensar;
 	}
 }

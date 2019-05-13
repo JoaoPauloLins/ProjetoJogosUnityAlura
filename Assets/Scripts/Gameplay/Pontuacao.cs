@@ -7,6 +7,11 @@ public class Pontuacao : MonoBehaviour
     private int pontuacao;
     private float tempoSobrevivencia;
 
+    private void Start()
+    {
+        tempoSobrevivencia = 0;
+    }
+
     public void AtualizarPontos()
     {
         pontuacao++;
@@ -14,7 +19,7 @@ public class Pontuacao : MonoBehaviour
 
     public void AtualizarTempoSobrevivencia()
     {
-        tempoSobrevivencia = Time.timeSinceLevelLoad;
+        tempoSobrevivencia += Time.timeSinceLevelLoad;
     }
 
     public int GetPontuacao()

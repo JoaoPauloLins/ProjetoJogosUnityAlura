@@ -3086,7 +3086,6 @@ GameObject:
   - component: {fileID: 136019490977274122}
   - component: {fileID: 114343259226597284}
   - component: {fileID: 114616175796600440}
-  - component: {fileID: 1665214593}
   - component: {fileID: 5102825716189994979}
   - component: {fileID: 5863276437844078343}
   m_Layer: 0
@@ -3172,6 +3171,7 @@ MonoBehaviour:
     m_Bits: 256
   TextoGameOver: {fileID: 0}
   SomDeDano: {fileID: 8300000, guid: c664dfdae3a77954d806753678c2528b, type: 3}
+  statusJogador: {fileID: 11400000, guid: 0369b192d228ce64cb096a94905e4990, type: 2}
   AoMorrer:
     m_PersistentCalls:
       m_Calls:
@@ -3273,21 +3273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7a60e8bdd64334e862a18a5f4510eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1665214593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884102019447498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26899c8c198bfcd46a8357330ef1e3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VidaInicial: 100
-  Vida: 0
-  Velocidade: 10
 --- !u!114 &5102825716189994979
 MonoBehaviour:
   m_ObjectHideFlags: 0
