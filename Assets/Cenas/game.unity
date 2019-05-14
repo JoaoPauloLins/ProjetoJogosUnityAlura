@@ -15130,6 +15130,18 @@ PrefabInstance:
       objectReference: {fileID: 350134857}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+--- !u!114 &1178924255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1215735868890228193, guid: 4b3bb44effa49480d8d18049684cc33a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1178924254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598d8620c8cd50e49850cfc52832c3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1179121621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4656246329960846, guid: bf4e53320739441f58d231c2ee884b66,
@@ -20113,6 +20125,86 @@ PrefabInstance:
       propertyPath: QuandoMudarOValor.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1665214586}
+    - target: {fileID: 7193917425811588869, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -85.700195
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515818773612084535, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7512472056031825322, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074554333849410227, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074554333849410227, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074554333849410227, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074554333849410227, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1178924255}
+    - target: {fileID: 9074554333849410227, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TrocarArma
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074554333849410227, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074554333849410227, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249326211252933424, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: aoTocar.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249326211252933424, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: aoTocar.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249326211252933424, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: aoTocar.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249326211252933424, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: aoTocar.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1178924255}
+    - target: {fileID: 5249326211252933424, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: aoTocar.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TrocarArma
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249326211252933424, guid: 48a7218673e2bf3469126bfd18cda682,
+        type: 3}
+      propertyPath: aoTocar.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48a7218673e2bf3469126bfd18cda682, type: 3}
 --- !u!1001 &2571290753182318542
