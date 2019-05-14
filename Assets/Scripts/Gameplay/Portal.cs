@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour
 {
     [SerializeField] private GameObject particulas;
     [SerializeField] private int pontuacaoAbrirPortal;
+    [SerializeField] private int pontuacaoBonus;
     [SerializeField] private UnityEvent AoEntrarNoPortal;
 
     private Pontuacao pontuacao;
@@ -34,6 +35,7 @@ public class Portal : MonoBehaviour
     {
         if (portalAberto && collision.gameObject.CompareTag("Jogador"))
         {
+            pontuacao.AdicionarPontuacaoBonus(pontuacaoBonus);
             pontuacao.AtualizarTempoSobrevivencia();
             AoEntrarNoPortal.Invoke();
         }

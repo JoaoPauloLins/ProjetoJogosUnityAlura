@@ -7015,6 +7015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particulas: {fileID: 62018951}
   pontuacaoAbrirPortal: 15
+  pontuacaoBonus: 5
   AoEntrarNoPortal:
     m_PersistentCalls:
       m_Calls:

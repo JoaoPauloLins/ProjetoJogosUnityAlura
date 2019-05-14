@@ -17,6 +17,11 @@ public class Pontuacao : MonoBehaviour
         pontuacao++;
     }
 
+    public void AdicionarPontuacaoBonus(int bonus)
+    {
+        pontuacao += bonus;
+    }
+
     public void AtualizarTempoSobrevivencia()
     {
         tempoSobrevivencia += Time.timeSinceLevelLoad;
